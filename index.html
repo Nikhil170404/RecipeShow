@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneySprint</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    <!-- Your Firebase configuration -->
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyB-pt9ASVgLCQTxaW9H7TmHbmodhByuuR0",
+            authDomain: "recipeshow-d2cf2.firebaseapp.com",
+            projectId: "recipeshow-d2cf2",
+            storageBucket: "recipeshow-d2cf2.appspot.com",
+            messagingSenderId: "168415613003",
+            appId: "1:168415613003:web:5095aa8d9f2379597ebdce",
+            measurementId: "G-WH26QNFNBL"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <!-- Custom CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>MoneySprint</h1>
+
+        <!-- Sign Up Form -->
+        <div id="signUpSection">
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required>
+                <label for="suEmail">Email:</label>
+                <input type="email" id="suEmail" required>
+                <label for="suPassword">Password:</label>
+                <input type="password" id="suPassword" required>
+                <button type="button" onclick="signUp()">Sign Up</button>
+            </form>
+            <button class="toggle-btn" onclick="toggleForm('signInSection')">Sign In</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="signInSection" class="hidden">
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <label for="siEmail">Email:</label>
+                <input type="email" id="siEmail" required>
+                <label for="siPassword">Password:</label>
+                <input type="password" id="siPassword" required>
+                <button type="button" onclick="signIn()">Sign In</button>
+            </form>
+            <button class="toggle-btn" onclick="toggleForm('signUpSection')">Sign Up</button>
+        </div>
+
+        <!-- Google Sign-In Button -->
+        <button onclick="signInWithGoogle()">Sign In with Google</button>
+    </div>
+    <script>
+        function toggleForm(sectionId) {
+    var signUpSection = document.getElementById('signUpSection');
+    var signInSection = document.getElementById('signInSection');
+
+    if (sectionId === 'signUpSection') {
+        signUpSection.classList.remove('hidden');
+        signInSection.classList.add('hidden');
+    } else if (sectionId === 'signInSection') {
+        signInSection.classList.remove('hidden');
+        signUpSection.classList.add('hidden');
+    }
+}
+    </script>
+    <!-- JavaScript for Sign Up, Sign In, and Google Sign-In -->
+    <script src="signin.js"></script>
+</body>
+</html>
